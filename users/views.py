@@ -84,8 +84,7 @@ def activate(request, token):
 
             return redirect(reverse('users:login'))
 
-    return render(request, 'users/email/set_passw'
-                           'ord.html', {
+    return render(request, 'users/email/set_password.html', {
         'form': form,
         'token': token,
     })

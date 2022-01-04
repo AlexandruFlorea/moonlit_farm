@@ -24,6 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('cows/', include('cows.urls')),
+    path('products/', include('products.urls')),
+    path('activities/', include('activities.urls')),
     path('', homepage_view, name='homepage'),
     path('about/', about_page, name='about'),
     path('reset/done/',

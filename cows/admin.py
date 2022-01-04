@@ -1,3 +1,7 @@
 from django.contrib import admin
+from cows.models import Cow
 
-# Register your models here.
+
+@admin.register(Cow)
+class CowAdmin(admin.ModelAdmin):
+    list_display = ['name', 'personality']

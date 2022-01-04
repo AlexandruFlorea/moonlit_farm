@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from users.models import AuthUser
 
 
-@admin.register(AuthUser)  # site is required if we have custom admin site
+@admin.register(AuthUser)  # site parameter is required if we have custom admin site
 class AdminAuthUser(BaseUserAdmin):
     ordering = ('email',)
     list_display = ('email', 'first_name', 'last_name', 'username', 'is_staff')

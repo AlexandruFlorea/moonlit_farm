@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'cows.apps.CowsConfig',
     'products.apps.ProductsConfig',
     'activities.apps.ActivitiesConfig',
+    'notifications.apps.NotificationsConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',

@@ -3,11 +3,15 @@ from products.models import Product
 
 
 def show_all_products(request):
-    return render(request, 'products/products.html', {})
+    products = Product.objects.all()
+
+    return render(request, 'products/products.html', {
+        'products': products,
+    })
 
 
 def product_details(request, product_id):
-    product = get_object_or_404(Product, product_id)
+    product = get_object_or_404(Product, pk=product_id)
 
     return render(request, 'products/details.html', {
         'product': product

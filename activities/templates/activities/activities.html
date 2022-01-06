@@ -9,5 +9,12 @@
 
 <h2 class="main">Our activities</h2>
 <br>
+<div>
+    {% for activity in activities %}
+        <p>
+            {{ activity.name }}
+        </p>
+    {% endfor %}
+</div>
 
 {% endblock %}

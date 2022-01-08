@@ -24,7 +24,20 @@ def mark_as_seen(request, id):
         notification.is_seen = True
         notification.save()
 
-        messages.success(request, 'You have marked your notification as seen.')
+        return redirect(reverse('notifications:view_all'))
+
+    return Http404('Method not allowed!')
+
+
+def mark_unseen(request, id):
+    if request.method == 'POST':
+        notification = get_object_or_404(Notification, pk=id)
+
+        if notification.user.id != request.user.id and not notification.is_seen:
+            return Http404('Not found!')
+
+        notification.is_seen = False
+        notification.save()
 
         return redirect(reverse('notifications:view_all'))
 

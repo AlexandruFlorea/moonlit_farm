@@ -8,6 +8,7 @@ class Activity(models.Model):
         ordering = ('-id',)
 
     name = models.CharField(max_length=128, unique=True, null=False)
+    description = models.CharField(max_length=10000, default='')
 
     def __str__(self):
         return self.name

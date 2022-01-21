@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'products.apps.ProductsConfig',
     'activities.apps.ActivitiesConfig',
     'notifications.apps.NotificationsConfig',
+    'payments.apps.PaymentsConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -170,3 +171,6 @@ MESSAGE_TAGS = {
 
 LOGIN_URL = 'users:login'
 LOGIN_REDIRECT_URL = 'users:profile'
+
+STRIPE_PUBLIC_KEY = config('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')

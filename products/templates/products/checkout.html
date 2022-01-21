@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <title>My Cart @MoonlitFarm</title>
+    <div class="main">
+        <h3>My cart</h3>
+        <br>
+        {% if cart_items|length == 0 %}
+            <p>Nothing but flowers and butterflies in your basket.</p>
+        {% else %}
+            <ul>
+                {% for cart_item in cart_items %}
+                    <li class="d-flex">
+                        <div>
+                            {{ cart_item.product.name }} - {{ cart_item.product.price }} RON - Qty: {{ cart_item.quantity }} - Total Price: {{ cart_item.total }}
+                        </div>
+                        <form method="post" action="{% url 'products:remove_from_cart' cart_item.product.id %}">
+                            {% csrf_token %}
+                            <input class="btn btn-link text-danger" type="submit" value="Remove" />
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+{% endblock %}

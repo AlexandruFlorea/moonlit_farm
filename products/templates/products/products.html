@@ -10,10 +10,22 @@
 <h2 class="main">Our products</h2>
 <br>
 <div>
-    {% for product in products %}
-        <p>
-            {{ product }}
-        </p>
-    {% endfor %}
+    <ol>
+        {% for product in product_list %}
+            <li>
+                <a href="{% url 'products:details' product.pk %}">{{ product.name }}
+                    <img src="{{ product.main_image }}" width="400px">
+                </a>
+                <div>
+                    <br>
+                    <form method="post" action="{% url 'products:add_to_cart' product.id %}">
+                        {% csrf_token %}
+                        <input type="number" value="0" name="quantity" />
+                        <input type="submit" value="Add to cart" />
+                    </form>
+                </div>
+            </li>
+        {% endfor %}
+    </ol>
 </div>
 {% endblock %}

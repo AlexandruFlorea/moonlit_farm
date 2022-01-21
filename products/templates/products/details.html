@@ -9,5 +9,23 @@
 
 <h2 class="main">{{ product.name }}</h2>
 <br>
+<div>
+    <img src="{{ product.main_image }}" alt="" width="800px">
+    <br>
+    <p>
+        Description: {{ product.description }}
+    </p>
+    <p>
+        Price: {{ product.price }} LEI
+    </p>
+</div>
+<div>
+    <br>
+    <form method="post" action="{% url 'products:add_to_cart' product.id %}">
+        {% csrf_token %}
+        <input type="number" value="0" name="quantity" />
+        <input type="submit" value="Add to cart" />
+    </form>
+</div>
 
 {% endblock %}

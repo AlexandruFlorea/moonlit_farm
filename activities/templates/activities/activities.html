@@ -10,11 +10,15 @@
 <h2 class="main">Our activities</h2>
 <br>
 <div>
-    {% for activity in activities %}
-        <p>
-            {{ activity.name }}
-        </p>
-    {% endfor %}
+    <ul>
+        {% for activity in activity_list %}
+            <li>
+                <a href="{% url 'activities:details' activity.pk %}">{{ activity.name }}
+                    <img src="{{ activity.main_image }}" width="400px">
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
 </div>
 
 {% endblock %}

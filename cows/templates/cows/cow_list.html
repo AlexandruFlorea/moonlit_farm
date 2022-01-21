@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Cows@MoonlitFarm</title>
+{% endblock %}
+
+{% block content %}
+
+<h2 class="main">Our family</h2>
+<br>
+<div>
+    <ul>
+        {% for cow in cow_list %}
+            <li>
+                <a href="{% url 'cows:details' cow.pk %}">{{ cow.name }}
+                    <img src="{{ cow.main_image }}" width="400px">
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

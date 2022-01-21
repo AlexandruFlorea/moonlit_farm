@@ -9,5 +9,11 @@
 
 <h2 class="main">{{ activity.name }}</h2>
 <br>
-
+<div>
+    <img src="{{ activity.main_image }}" alt="" width="800px">
+    <br>
+    <p>
+        Description: {{ activity.description }}
+    </p>
+</div>
 {% endblock %}

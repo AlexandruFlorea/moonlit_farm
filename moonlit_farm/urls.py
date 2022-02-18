@@ -20,6 +20,8 @@ from django.conf import settings
 from django.urls import path, include
 from moonlit_farm.views import homepage_view, about_page
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
@@ -28,6 +30,8 @@ urlpatterns = [
     path('activities/', include('activities.urls')),
     path('notifications/', include('notifications.urls')),
     path('payments/', include('payments.urls')),
+    path('blogs/', include('blogs.urls')),
+
     path('', homepage_view, name='homepage'),
     path('about/', about_page, name='about'),
     path('reset/done/',

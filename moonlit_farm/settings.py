@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'activities.apps.ActivitiesConfig',
     'notifications.apps.NotificationsConfig',
     'payments.apps.PaymentsConfig',
+    'blogs.apps.BlogsConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',

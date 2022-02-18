@@ -16,6 +16,7 @@ from users.forms import RegisterForm, PasswordForm, ProfileImageForm
 from users.models import Activation
 from users.email import send_activation_email
 from utils.constants.activation import ACTIVATION_DICT
+from payments.models import StripeCard
 
 
 AuthUserModel = get_user_model()
@@ -109,6 +110,7 @@ def regenerate_token(request, token):
 
 @login_required
 def show_profile(request):
+    # card_list = StripeCard.objects.filter()
     if request.method == 'GET':
         form = ProfileImageForm()
     else:

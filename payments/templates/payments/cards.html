@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Cards @MoonlitFarm</title>
+{% endblock %}
+
+{% block content %}
+
+<h2 class="main">Your cards</h2>
+<br>
+<div>
+    {% if card_list %}
+    <ol>
+        {% for card in card_list %}
+            <li>
+                <a href="{% url 'card:details' card.pk %}">{{ card.name }}</a>
+                <div>
+                    <br>
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <input type="submit" value="" />
+                    </form>
+                </div>
+            </li>
+        {% endfor %}
+    </ol>
+    {% else %}
+        <p>No cards available. Please register one <a href="{% url 'payments:add_card' %}">here.</a></p>
+    {% endif %}
+</div>
+{% endblock %}

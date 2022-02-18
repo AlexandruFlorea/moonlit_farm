@@ -46,9 +46,12 @@ def show_checkout(request):
         for product in products
     ]
 
+    available_cards = request.user.stripe_customer.cards
+
     return render(request, 'products/checkout.html', {
         'cart_items': cart_items,
         'cart': cart,
+        'available_cards': available_cards,
     })
 
 

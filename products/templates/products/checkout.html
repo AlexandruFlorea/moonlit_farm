@@ -21,6 +21,12 @@
                     </li>
                 {% endfor %}
             </ul>
+        {% if available_cards|length == 0 %}
+            <p>No payment methods available. Please register one <a href="{% url 'payments:add_card' %}">here.</a></p>
+        {% endif %}
+        <form>
+            <input type="submit" value="Order" />
+        </form>
         {% endif %}
     </div>
 {% endblock %}

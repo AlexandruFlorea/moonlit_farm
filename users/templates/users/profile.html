@@ -33,6 +33,14 @@
                         <strong>Email: {{ request.user.email }}</strong>
                     </div>
                 </div>
+                <br>
+                <br>
+                <h5>My Cards</h5>
+                <div>
+                    {% for card in card_list %}
+                        {{ card }}
+                    {% endfor %}
+                </div>
             </div>
         </div>
         <div style="color: white">
